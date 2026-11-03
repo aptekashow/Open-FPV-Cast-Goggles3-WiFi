@@ -1,0 +1,30 @@
+<script lang="ts">
+	import AppBar from '$lib/components/common/AppBar.svelte';
+	import CameraControls from '$lib/components/camera/CameraControls.svelte';
+	import { cameraModel, connection } from '$lib/stores/connection';
+	import * as m from '$lib/paraglide/messages';
+</script>
+
+<main class="screen-fit flex flex-col overflow-hidden">
+	<AppBar title={m.page_cameraTitle()} back="/" backLabel={m.nav_backShort()}>
+		{#snippet trailing()}
+			{#if $cameraModel}
+				<span
+					class="mr-2 flex h-6.5 items-center rounded-full bg-secondary px-2.5 font-mono text-[11px] tracking-wide text-muted-foreground"
+				>
+					{$cameraModel.toUpperCase()}
+				</span>
+			{/if}
+		{/snippet}
+	</AppBar>
+
+	<div class="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-4 py-4 pb-10">
+		{#if $connection.state === 'connected' && $connection.transport === 'wifi'}
+			<div class="rounded-xl border bg-card p-4 text-sm leading-relaxed text-muted-foreground">
+				Camera settings require the existing USB/AOA connection. The Goggles 3 Wi-Fi receiver is video-only; switch to USB to use camera controls.
+			</div>
+		{:else}
+			<CameraControls />
+		{/if}
+	</div>
+</main>
