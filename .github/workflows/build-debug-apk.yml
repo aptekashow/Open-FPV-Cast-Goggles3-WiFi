@@ -42,7 +42,7 @@ jobs:
           yes | sdkmanager --licenses >/dev/null
           sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
-       - name: Install JavaScript dependencies
+      - name: Install JavaScript dependencies
         run: pnpm install --frozen-lockfile --prod=false
 
       - name: Build plugin bridge
