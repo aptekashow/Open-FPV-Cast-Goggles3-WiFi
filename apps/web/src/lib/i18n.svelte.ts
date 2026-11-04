@@ -18,7 +18,8 @@ export const availableLocales = locales;
 /** Human-readable name for each locale, shown in the language switcher. */
 export const localeLabels: Record<Locale, string> = {
 	en: 'English',
-	'pt-BR': 'Português (BR)'
+	'pt-BR': 'Português (BR)',
+	ru: 'Русский'
 };
 
 function isKnownLocale(value: string): value is Locale {
