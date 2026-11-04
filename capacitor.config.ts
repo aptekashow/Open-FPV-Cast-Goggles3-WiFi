@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
 	// Must match the Gradle `applicationId`. Technical identity — never rename: an installed
 	// app that changes it becomes a different app and loses its data.
 	appId: 'io.basco.openfpvcast',
-	appName: 'Open FPV Cast',
+	appName: 'SlepenLink',
 	webDir: 'apps/web/build',
 	bundledWebRuntime: false,
 	android: {
